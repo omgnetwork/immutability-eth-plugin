@@ -6,7 +6,11 @@ jobs:
       image: ubuntu-1604:201903-01
     steps:
       - checkout
-      - run: make all
+      - run: 
+          name: "Build and test" 
+          command: |
+            make all
+          no_output_timeout: 2400
 
   publish_immutability:
     machine:
