@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Own config
+          command: mkdir docker/config && sudo chown -R "100:100" docker/config/
+      - run:
           name: Build and Test
           command: |
             make all

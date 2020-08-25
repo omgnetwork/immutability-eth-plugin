@@ -110,7 +110,7 @@ whoami
 
 gencerts
 
-nohup vault server -log-level=debug -config /home/vault/config/vault.hcl &
+nohup vault server -log-level=debug -config /home/vault/boot/vault.hcl &
 VAULT_PID=$!
 
 function unseal() {

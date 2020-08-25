@@ -53,10 +53,11 @@ services:
       - "ganache"
       - "truffle"
     volumes:
-      - "./config:/home/vault/config:rw"
       - "../contracts:/home/vault/contracts:ro"
       - "../scripts:/home/vault/scripts:ro"
       - "./truffle:/truffleshuffle:rw"
+      - "./boot:/home/vault/boot"
+      - "./config:/home/vault/config"
     entrypoint: >
       /bin/sh -c "
         sleep 2
@@ -64,7 +65,7 @@ services:
           echo Waiting on the truffle shuffle.  This will take some time as plasma framework is recompiled...
           sleep 3
         done;
-        /home/vault/config/entrypoint.sh
+        /home/vault/boot/entrypoint.sh
       "
 networks:
   testnet:
