@@ -31,6 +31,8 @@ ARG always_upgrade
 RUN echo ${always_upgrade} > /dev/null && apk update && apk upgrade
 RUN apk add bash openssl jq
 
+USER root
+
 RUN mkdir -p /home/vault/ca
 RUN mkdir -p /home/vault/config 
 RUN mkdir -p /home/vault/scripts 
