@@ -30,12 +30,19 @@ FROM vault:latest
 ARG always_upgrade
 RUN echo ${always_upgrade} > /dev/null && apk update && apk upgrade
 RUN apk add bash openssl jq
+
+RUN mkdir -p /home/vault/ca
+RUN mkdir -p /home/vault/config 
+RUN mkdir -p /home/vault/scripts 
+RUN mkdir -p /home/vault/plugins
+RUN chown vault:vault /home/vault/ca
+RUN chown vault:vault /home/vault/config
+RUN chown vault:vault /home/vault/scripts
+RUN chown vault:vault /home/vault/plugins
+
 USER vault
 WORKDIR /app
-RUN mkdir -p /home/vault/ca \
-    /home/vault/config \
-    /home/vault/scripts \
-    /home/vault/plugins
+
 # Install the plugin.
 COPY --from=build /app/bin/immutability-eth-plugin /home/vault/plugins/immutability-eth-plugin
 COPY --from=build /app/bin/SHA256SUMS /home/vault/plugins/SHA256SUMS
