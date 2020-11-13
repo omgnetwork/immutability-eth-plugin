@@ -108,7 +108,7 @@ Now, we get shell on the vault agent:
 $ kubectl exec -it omisego-agent-sidecar --container vault-agent-auth sh
 / # export VAULT_TOKEN=$(cat /home/vault/.vault-token)
 / # export VAULT_CACERT=/home/certs/vault-cacert
-/ # vault  write immutability-eth-plugin/wallets/plasma-deployer/accounts/0x4BC91c7fA64017a94007B7452B75888cD82185F7/plasma/submitBlock block_root=1234qweradgf1234qweradgf contract=0xd185aff7fb18d2045ba766287ca64992fdd79b1e
+/ # vault  write immutability-eth-plugin/wallets/plasma-deployer/accounts/0x4BC91c7fA64017a94007B7452B75888cD82185F7/plasma/submitBlock block_root=KW7c+YhqaeXzUSARcnOh0sBSWhAU7l144fF6ls0Y5Vw= contract=0xd185aff7fb18d2045ba766287ca64992fdd79b1e
 Key                   Value
 ---                   -----
 contract              0xd185AFF7fB18d2045Ba766287cA64992fDd79B1e
